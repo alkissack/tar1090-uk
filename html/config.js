@@ -6,7 +6,7 @@
 "use strict";
 // -- Title Settings --------------------------------------
 // Show number of aircraft and/or messages per second in the page title
-//PlaneCountInTitle = false;
+PlaneCountInTitle = false;
 //MessageRateInTitle = false;
 
 // -- Output Settings -------------------------------------
@@ -14,7 +14,7 @@
 // metric (m, km, km/h) or imperial (ft, mi, mph) units are used in the
 // plane table and in the detailed plane info. Valid values are
 // "nautical", "metric", or "imperial".
-//DisplayUnits = "nautical";
+DisplayUnits = "nautical";
 
 // -- Map settings ----------------------------------------
 // These settings are overridden by any position information
@@ -22,10 +22,10 @@
 // degrees.
 
 // Default center of the map.
-//DefaultCenterLat = 45.0;
-//DefaultCenterLon = 9.0;
+DefaultCenterLat = 53.0;
+DefaultCenterLon = -0.4;
 // The google maps zoom level, 0 - 16, lower is further out
-//DefaultZoomLvl   = 7;
+DefaultZoomLvl   = 9;
 
 // specify lat lon that the 'auto-select plane' feature will choose the closest plane to
 // autoselectCoords = [42, 21];
@@ -33,10 +33,10 @@
 // Center marker. If dump1090 provides a receiver location,
 // that location is used and these settings are ignored.
 
-//SiteShow    = false;           // true to show a center marker
-//SiteLat     = 45.0;            // position of the marker
-//SiteLon     = 9.0;
-//SiteName    = "My Radar Site"; // tooltip of the marker
+SiteShow    = false;           // true to show a center marker
+SiteLat     = 53.0;            // position of the marker
+SiteLon     = -0.40;
+SiteName    = "ADSB"; // tooltip of the marker
 
 // Update GPS location (keep map centered on GPS location)
 //updateLocation = false;
@@ -45,7 +45,7 @@
 //range_outline_color = '#0000DD';
 //range_outline_alpha = 1.0;
 //range_outline_width = 1.7;
-//range_outline_colored_by_altitude = false;
+range_outline_colored_by_altitude = false;
 //range_outline_dash = [5, 5]; // null - solid line, [5, 5] - dashed line with 5 pixel lines and spaces in between
 //
 //
@@ -55,10 +55,11 @@
 // actual_range_outline_dash = null; // null - solid line, [5, 5] - dashed line with 5 pixel lines and spaces in between
 
 // Enable / disable showing the actual range outline when first visiting the page
-// actual_range_show = true;
+actual_range_show = false;
 
 // which map is displayed to new visitors
-// MapType_tar1090 = "carto_light_all";
+MapType_tar1090 = "carto_light_nolabels";
+
 //
 // valid values for the above setting:
 // osm
@@ -88,7 +89,7 @@
 // dwdLayers = 'dwd:RX-Produkt';
 
 // Default map dim state, true or false.
-// MapDim = true;
+MapDim = false;
 // mapDimPercentage = 0.45;
 // mapContrastPercentage = 0;
 
@@ -125,17 +126,17 @@
 //lineWidth = 1;
 //
 // Outline color for aircraft icons
-// OutlineADSBColor = '#000000';
+OutlineADSBColor = '#000000';
 
 // Outline width for aircraft icons
 // outlineWidth = 1;
 
 // constant html color for markers / tracks
-//monochromeMarkers = "#FFFFFF";
-//monochromeTracks = "#000000";
+monochromeMarkers = "#FFFFFF";
+monochromeTracks = "#000000";
 //
 
-// altitudeChartDefaultState = true;
+altitudeChartDefaultState = false;
 
 // These settings control the coloring of aircraft by altitude.
 // All color values are given as Hue (0-359) / Saturation (0-100) / Lightness (0-100)
@@ -185,19 +186,19 @@ ColorByAlt = {
 */
 
 // For a monochrome display try this:
-// ColorByAlt = {
-//         unknown :  { h: 0, s: 0, l: 40 },
-//         ground  :  { h: 0, s: 0, l: 30 },
-//         air :      { h: [ { alt: 0, val: 0 } ], s: 0, l: 50 },
-//         selected : { h: 0, s: 0, l: +30 },
-//         stale :    { h: 0, s: 0, l: +30 },
-//         mlat :     { h: 0, s: 0, l: -10 }
-// };
+ ColorByAlt = {
+         unknown :  { h: 0, s: 0, l: 40 },
+         ground  :  { h: 0, s: 0, l: 30 },
+         air :      { h: [ { alt: 0, val: 0 } ], s: 0, l: 50 },
+         selected : { h: 0, s: 0, l: +30 },
+         stale :    { h: 0, s: 0, l: +30 },
+         mlat :     { h: 0, s: 0, l: -10 }
+ };
 
 // Range rings
 
 // Also called range rings :)
-//SiteCircles = true; // true to show circles (only shown if the center marker is shown)
+SiteCircles = false; // true to show circles (only shown if the center marker is shown)
 // In miles, nautical miles, or km (depending settings value 'DisplayUnits')
 //SiteCirclesDistances = new Array(100,150,200,250);
 // When more circles defined than cirle colors last color will be used or black by default
@@ -206,13 +207,13 @@ ColorByAlt = {
 //SiteCirclesLineDash = [5, 5]; // null - solid line, [5, 5] - dashed line with 5 pixel lines and spaces in between
 
 // Controls page title, righthand pane when nothing is selected
-//PageName = "tar1090";
+PageName = "Lincs Air";
 
 // Show country flags by ICAO addresses?
-//ShowFlags = true;
+ShowFlags = true;
 
 // Set to false to disable the ChartBundle base layers (US coverage only)
-//ChartBundleLayers = true;
+ChartBundleLayers = false;
 
 // Provide a Bing Maps API key here to enable the Bing imagery layer.
 // You can obtain a free key (with usage limits) at
@@ -272,10 +273,10 @@ BingMapsAPIKey = null;
 
 // time in seconds before an MLAT position is accepted after receiving a
 // more reliable position
-//mlatTimeout = 30;
+mlatTimeout = 30;
 
 // enable/disable mouseover/hover aircraft information
-//enableMouseover = true;
+enableMouseover = true;
 
 // enable/disable temporary aircraft trails
 //tempTrails = false;
@@ -283,7 +284,8 @@ BingMapsAPIKey = null;
 //squareMania = false;
 
 // Columns that have a // in front of them are shown.
-/* // remove this line to mofify columns (and the one at the end)
+
+// remove this line to mofify columns (and the one at the end)
 HideCols = [
 	"#icao",
 //	"#flag",
@@ -295,7 +297,7 @@ HideCols = [
 //	"#altitude",
 //	"#speed",
 	"#vert_rate",
-//	"#distance",
+	"#distance",
 	"#track",
 	"#msgs",
 	"#seen",
@@ -304,7 +306,7 @@ HideCols = [
 	"#lon",
 	"#data_source",
 ]
-*/ // remove this line to modify columns (and the one at the start)
+// remove this line to modify columns (and the one at the start)
 
 // show aircraft pictures
 // showPictures = true;
@@ -350,7 +352,7 @@ HideCols = [
 //filterMaxRange = 50; // don't show aircraft further than 50 nmi from the receiver
 //
 //
-//darkModeDefault = true; // turn on dark mode by default (change in browser possible)
+darkModeDefault = false; // turn on dark mode by default (change in browser possible)
 //
 //
 //jaeroTimeout = 35 * 60; // in seconds
